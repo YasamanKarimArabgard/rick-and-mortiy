@@ -49,19 +49,19 @@ const CharacterDetail = ({ selectedChar, handleAddFavorite, isAddedFavorite }) =
     }
     return (
         <div className="w-full md:w-3/5 character_detail flex-1 px-2 h-fit mb-2" key={character.id}>
-            <div className="flex gap-x-2 rounded-lg overflow-hidden bg-slate-800 h-full w-full mb-2">
-                <img className="character_detail-img w-1/3 h-fit" src={character.image} />
-                <div className="character-detail-info m-1 flex flex-col justify-between">
-                    <div className="flex flex-col gap-y-1 text-md text-slate-200 mt-2">
+            <div className="flex gap-x-2 rounded-lg overflow-hidden bg-slate-800 max-h-36 h-full w-full mb-2">
+                <img className="character_detail-img w-1/3 h-full" src={character.image} />
+                <div className="character-detail-info flex flex-col justify-between">
+                    <div className="flex flex-col text-md text-slate-200">
                         <span className="font-bold text-xl text-slate-200">{character.name}</span>
                         <div className="flex gap-x-2 items-center">
                             <span className={`w-2 h-2 rounded-full ${character.status == 'Alive' ? 'bg-green-600' : 'bg-red-600'}`}></span>
                             <span className="text-sm md:text-md">{character.status}</span> - <span className="text-sm md:text-md">{character.species}</span>
                         </div>
                     </div>
-                    <div className="episode_loaction_container flex flex-col gap-y-1">
-                        <span className="text-slate-500 text-sm md:text-lg">Last known location :</span>
-                        <div className="flex items-center">
+                    <div className="episode_loaction_container flex flex-col">
+                        <span className="text-slate-500 text-sm md:text-lg font-bold">Last known location :</span>
+                        <div className="flex items-center gap-x-1">
                             <MapPinIcon className="w-4 h-4 text-slate-300" />
                             <span className="episode_location-name text-slate-300 text-xs md:text-lg">{characterLocation.name}</span>
                         </div>
@@ -74,7 +74,7 @@ const CharacterDetail = ({ selectedChar, handleAddFavorite, isAddedFavorite }) =
                     }
                 </div>
             </div>
-            <div className="episodes_container rounded-lg overflow-hidden bg-slate-800 h-fit">
+            <div className="episodes_container rounded-lg overflow-hidden bg-slate-800 h-fit max-h-52">
                 <div className="flex flex-col gap-x-2 h-full p-1">
                     <h4 className="text-slate-500 font-bold text-xl mb-1">List of episodes : </h4>
                     <div className="episodes_list flex flex-col h-full">
