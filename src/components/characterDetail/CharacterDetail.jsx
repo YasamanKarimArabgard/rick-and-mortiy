@@ -67,7 +67,7 @@ const CharacterDetail = ({ selectedChar, handleAddFavorite, isAddedFavorite }) =
                         </div>
                     </div>
                     {
-                        isAddedFavorite ? <p className="text-red-300 text-sm">This item alredy added to favourite list.</p> :
+                        isAddedFavorite ? <p className="text-red-300 text-sm md:text-sm">This item alredy added to list.</p> :
                             <button
                                 onClick={() => handleAddFavorite(character)}
                                 className="text-sm md:text-lg md:py-1 md:px-2 bg-slate-500 rounded-xl mb-2 text-slate-300 hover:bg-red-300">add favorite</button>
