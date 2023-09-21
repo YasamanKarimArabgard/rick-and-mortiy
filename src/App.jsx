@@ -3,6 +3,7 @@ import Navbar from './components/navbar/Navbar';
 import CharacterList from './components/characterList/CharacterList';
 import getCharacters from './services/getCharachters';
 import CharacterDetail from './components/characterDetail/CharacterDetail';
+import axios from 'axios';
 
 function App() {
 
@@ -11,6 +12,8 @@ function App() {
   const [searchInput, setSearchInput] = useState('')
   const [selectedChar, setSelectedChar] = useState(null);
   const [favoriteItem, setFavoriteItem] = useState([]);
+
+  // console.log(characters);
 
   useEffect(() => {
     const controler = new AbortController();
@@ -22,14 +25,12 @@ function App() {
         const { data } = await getCharacters(searchInput, signal);
         setCharacters(data.results);
         // console.log(data.results);
+        setLoading(false);
       } catch (err) {
         if (axios.isCancel()) {
           setCharacters([])
           console.log(err.response.data.error);
         }
-      }
-      finally {
-        setLoading(false);
       }
     }
 
