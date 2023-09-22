@@ -49,7 +49,7 @@ const CharacterDetail = ({ selectedChar, handleAddFavorite, isAddedFavorite }) =
     }
     return (
         <div className="w-full md:w-3/5 character_detail flex-1 px-2 h-fit mb-2" key={character.id}>
-            <div className="flex gap-x-2 rounded-lg overflow-hidden bg-slate-800 max-h-36 h-full w-full mb-2">
+            <div className="flex gap-x-2 rounded-lg overflow-hidden bg-slate-800 max-h-36 md:h-auto md:max-h-none h-full w-full mb-2">
                 <img className="character_detail-img w-1/3 h-full" src={character.image} />
                 <div className="character-detail-info flex flex-col justify-between">
                     <div className="flex flex-col text-md text-slate-200">
@@ -74,7 +74,7 @@ const CharacterDetail = ({ selectedChar, handleAddFavorite, isAddedFavorite }) =
                     }
                 </div>
             </div>
-            <div className="episodes_container rounded-lg overflow-hidden bg-slate-800 h-fit max-h-52">
+            <div className="episodes_container rounded-lg overflow-hidden bg-slate-800 h-fit max-h-52 md:h-auto md:max-h-none">
                 <div className="flex flex-col gap-x-2 h-full p-1">
                     <h4 className="text-slate-500 font-bold text-xl mb-1">List of episodes : </h4>
                     <div className="episodes_list flex flex-col h-full">
@@ -82,11 +82,11 @@ const CharacterDetail = ({ selectedChar, handleAddFavorite, isAddedFavorite }) =
                             episodes.slice(0, 6).map((epi, index) => (
                                 <div className="flex items-center justify-between gap-y-2 mb-1">
                                     <div className="flex flex-row gap-x-2">
-                                        <span className="ep-count text-slate-300 text-xs md:text-lg">{String(index + 1).padStart(2, '0')} -</span>
-                                        <span className="ep-episode text-slate-300 text-xs md:text-lg">{epi.episode} :</span>
+                                        <span className="ep-count text-slate-300 text-xs md:text-lg">{String(index + 1).padStart(2, '0')}</span>
+                                        <span className="ep-episode text-slate-300 text-xs md:text-lg">{epi.episode}:</span>
                                         <span className="ep-name text-slate-300 text-xs md:text-lg font-bold overflow-hidden truncate">{epi.name}</span>
                                     </div>
-                                    <span className="ep-date bg-slate-600 rounded-lg text-slate-400 px-1 text-xs">{epi.air_date}</span>
+                                    <span className="ep-date bg-slate-600 rounded-lg text-slate-400 px-1 text-xs overflow-hidden truncate">{epi.air_date}</span>
                                 </div>
                             ))
                         }
