@@ -48,14 +48,24 @@ function App() {
     setFavoriteItem((prevState) => [...prevState, char])
   }
 
+  const handleDeleteFav = (id, e) => {
+    e.preventDefault();
+    e.stopPropagation()
+    const favList = favoriteItem.filter(f => f.id !== id);
+    setFavoriteItem(favList);
+  }
+
   const isAddedFavorite = favoriteItem.map(fav => fav.id).includes(selectedChar);
 
   return (
     <main className='bg-slate-900 max-h-screen h-screen min-h-screen flex flex-col justify-between overflow-hidden'>
+
       <Navbar
         searchInput={searchInput}
         setSearchInput={setSearchInput}
-        favoriteNumber={favoriteItem} />
+        favoriteItem={favoriteItem} 
+        handleDeleteFav={handleDeleteFav}
+        />
       {
         loading ?
           <p className="text-red-500 text-center">characters are loading...</p> :
