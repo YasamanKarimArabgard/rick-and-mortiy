@@ -19,10 +19,12 @@ const Navbar = ({ setSearchInput, searchInput, favoriteItem, handleDeleteFav }) 
                 <Searchbar searchInput={searchInput} setSearchInput={setSearchInput} />
             </div>
             <>
-                <Modal setModalOpen={setModalOpen} modalOpen={modalOpen}>
+                <Modal setModalOpen={setModalOpen} modalOpen={modalOpen} favoriteItem={favoriteItem}>
                     {
                         favoriteItem.length === 0 ?
-                            <p className='m-auto text-slate-300'>select a favourite item.</p> :
+                            <div className='h-20 m-auto flex justify-center items-center'>
+                                <p className='text-slate-300'>select a favourite item.</p>
+                            </div> :
                             favoriteItem.map(fav => (
                                 <MyChar char={fav} key={fav.id}>
                                     <button onClick={(e) => handleDeleteFav(fav.id, e)}>
