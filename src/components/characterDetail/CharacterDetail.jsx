@@ -44,14 +44,16 @@ const CharacterDetail = ({ selectedChar, handleAddFavorite, isAddedFavorite }) =
 
     if (charLoading) {
         return (
-            <p className="text-orange-500 mx-auto">character is loading....</p>
+            <p className="character-loading text-orange-500 mx-auto">character is loading....</p>
         )
     }
     return (
-        <div className="w-full md:w-3/5 character_detail flex-1 px-2 h-fit mb-2" key={character.id}>
-            <div className="flex gap-x-2 rounded-lg overflow-hidden bg-slate-800 max-h-36 md:h-auto md:max-h-none h-full w-full mb-2">
-                <img className="character_detail-img w-1/3 h-full" src={character.image} />
-                <div className="character-detail-info flex flex-col justify-between">
+        <div className="character-container w-full md:w-3/5 character_detail flex-1 flex flex-col gap-y-2 px-2 h-fit mb-2" key={character.id}>
+            <div className="character flex items-around gap-x-2 rounded-lg overflow-hidden bg-slate-800 max-h-36 md:h-auto md:max-h-none h-full w-full">
+                <div className="character_detail-img w-1/3 h-full">
+                    <img className="w-full h-auto" src={character.image} />
+                </div>
+                <div className="character-detail-info w-2/3 flex flex-col justify-between min-h-full">
                     <div className="flex flex-col text-md text-slate-200">
                         <span className="font-bold text-xl text-slate-200">{character.name}</span>
                         <div className="flex gap-x-2 items-center">
@@ -70,7 +72,7 @@ const CharacterDetail = ({ selectedChar, handleAddFavorite, isAddedFavorite }) =
                         isAddedFavorite ? <p className="text-red-300 text-sm md:text-sm">This item alredy added to list.</p> :
                             <button
                                 onClick={() => handleAddFavorite(character)}
-                                className="text-sm md:text-lg md:py-1 md:px-2 bg-slate-500 rounded-xl mb-2 text-slate-300 hover:bg-red-300">add favorite</button>
+                                className="text-sm md:text-lg md:py-1 md:px-2 w-1/2 bg-slate-500 rounded-xl mb-2 text-slate-300 hover:bg-red-300">add favorite</button>
                     }
                 </div>
             </div>
