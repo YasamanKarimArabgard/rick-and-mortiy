@@ -58,29 +58,30 @@ function App() {
   const isAddedFavorite = favoriteItem.map(fav => fav.id).includes(selectedChar);
 
   return (
-    <main className='bg-slate-900 max-h-screen h-screen min-h-screen flex flex-col justify-between overflow-hidden'>
-
-      <Navbar
-        searchInput={searchInput}
-        setSearchInput={setSearchInput}
-        favoriteItem={favoriteItem} 
-        handleDeleteFav={handleDeleteFav}
+    <main className='main-body bg-slate-900 flex justify-center'>
+      <main className='main-app bg-slate-900 max-h-screen max-w-screen-2xl h-screen min-h-screen w-screen flex flex-col justify-between overflow-hidden'>
+        <Navbar
+          searchInput={searchInput}
+          setSearchInput={setSearchInput}
+          favoriteItem={favoriteItem}
+          handleDeleteFav={handleDeleteFav}
         />
-      {
-        loading ?
-          <p className="text-red-500 text-center">characters are loading...</p> :
-          <main className='characterlist flex-wrap overflow-hidden h-fit flex flex-row-reverse justify-between gap-x-4 gap-y=2'>
-            <CharacterDetail
-              selectedChar={selectedChar}
-              handleAddFavorite={handleAddFavorite}
-              isAddedFavorite={isAddedFavorite} />
-            <CharacterList
-              characters={characters}
-              selectId={selectId}
-              selectedChar={selectedChar} />
-          </main>
-      }
-      <footer className='flex justify-center h-4'></footer>
+        {
+          loading ?
+            <p className="text-red-500 text-center">characters are loading...</p> :
+            <main className='characterlist flex-wrap md:flex-nowrap overflow-hidden h-fit flex flex-row-reverse justify-between gap-x-4 gap-y-2'>
+              <CharacterDetail
+                selectedChar={selectedChar}
+                handleAddFavorite={handleAddFavorite}
+                isAddedFavorite={isAddedFavorite} />
+              <CharacterList
+                characters={characters}
+                selectId={selectId}
+                selectedChar={selectedChar} />
+            </main>
+        }
+        <footer className='flex justify-center h-4'></footer>
+      </main>
     </main>
   )
 }
